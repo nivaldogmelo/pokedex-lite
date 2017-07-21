@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokémon Finder</title>
+</head>
+<body>
+
+    <div>
+        <input type="text" name="pokemonId" id="pokemonId">
+        <h1>Digite um número entre 1 e 715 e receberá a descrição e o nome do pokémon correspondente na pokedex (Ainda lento):</h1>
+        <button id="buscar">Buscar</button>
+    </div>
+
+    <div>
+        <h1 id="name"></h1>
+        <p id="types"></p>
+        <p id="description"></p>
+        <img src="" id="image">
+    </div>
+
+</body>
+
+<script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+      $('#buscar').click(function () {
+        var id = $('#pokemonId').val();
+          $.getJSON( "Pokefind"+id, function( data ) {
+
+          $("#name").text(data.name);
+          $("#types").text(data.name.type)
+          $("#description").text(data.description);
+              if (id < 10) {
+                id = String(id);
+                id = "00".concat(id);
+              } else if (id < 100) {
+                id = String(id);
+                id = "0".concat(id);
+              }
+          $("#image").attr("src", "http://pokeunlock.com/wp-content/uploads/2015/01/"+ id +".png");
+          });
+      });
+    });
+
+
+</script>
+
+</html>
