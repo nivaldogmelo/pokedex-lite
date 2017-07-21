@@ -1,5 +1,5 @@
 # pokedex-lite
-A site that returns a pokemon description
+A site that returns a pokemon description, just to practice the use of javascript with JQuery
 
 # usage
 To use that program, you'll need to have node and npm installed on your machine
